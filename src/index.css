@@ -1,0 +1,56 @@
+:root {
+	--Lineargradient: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+	--Red: hsl(0, 100%, 66%);
+
+	--White: hsl(0, 0%, 100%);
+	--Lighgrayishviolet: hsl(270, 3%, 87%);
+	--Dargrayisviolet: hsl(279, 6%, 55%);
+	--Verdarviolet: hsl(278, 68%, 11%);
+
+	background: var(--White);
+}
+
+body {
+	font-family: 'Space Grotesk', sans-serif;
+}
+
+.App {
+	display: flex;
+	min-height: 100vh;
+	align-items: center;
+	justify-content: center;
+}
+
+body::after {
+	content: url("assets/bg-main-desktop.png");
+	width: 40%;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -100;
+}
+
+@media screen and (max-width: 600px) {
+	.App {
+		flex-direction: column;
+	}
+
+	.cardDeco {
+		width: 100%;
+	}
+
+	.cardForm,
+	.cardThanks {
+		width: 100%;
+	}
+
+	body::after {
+		content: "";
+		background: url("assets/bg-main-mobile.png") no-repeat;
+		background-size: cover;
+		height: 40%;
+		width: 100%;
+	}
+}

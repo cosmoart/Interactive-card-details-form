@@ -1,0 +1,89 @@
+.cardFront {
+	background: url("assets/bg-card-front.png") no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	/* margin-left: 30%; */
+	margin-bottom: 20px;
+}
+
+.cardFront div {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.cardFront div span {
+	font-size: 13px;
+}
+
+.cardFront div span:first-child {
+	text-transform: uppercase;
+}
+
+.cardBack {
+	background: url("assets/bg-card-back.png") no-repeat;
+	/* margin-left: 35%; */
+}
+
+.cardBack span {
+	position: absolute;
+	right: 62px;
+	top: 68px;
+}
+
+.cardFront,
+.cardBack {
+	max-width: 20rem;
+	height: 10rem;
+	border-radius: 10px;
+	background-size: cover;
+	color: var(--White);
+	position: relative;
+	padding: 20px;
+}
+
+.cardFront::after {
+	content: url("assets/card-logo.svg");
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.cardForm {
+	display: flex;
+	flex-direction: column;
+	max-width: 24rem;
+	margin: auto;
+}
+
+.cardForm label {
+	text-transform: uppercase;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 15px;
+}
+
+.cardDeco {
+	width: 55%;
+}
+
+.cardForm,
+.cardThanks {
+	width: 45%;
+}
+
+.btn-primary {
+	background: var(--Verdarviolet);
+	border: none;
+	padding: 10px 20px;
+	color: var(--White);
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.card-input {
+	padding: 10px;
+	border: 1px solid var(--Dargrayisviolet);
+	border-radius: 3px;
+}
