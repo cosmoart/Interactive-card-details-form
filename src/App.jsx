@@ -7,11 +7,10 @@ function App() {
 
 	const handleInput = (e) => {
 		if (e.target.name === "number") {
-			if (e.target.value.length < 19) {
+			if (e.target.value.length < 20) {
 				let valueWithoutSpaces = e.target.value.toString().replace(/\s/g, '');
-
-				setFormData({ ...formData, number: valueWithoutSpaces ? valueWithoutSpaces.match(/.{1,4}/g).join(" ") : null });
 				e.target.value = valueWithoutSpaces ? valueWithoutSpaces.match(/.{1,4}/g).join(" ") : "";
+				setFormData({ ...formData, number: valueWithoutSpaces ? valueWithoutSpaces.match(/.{1,4}/g).join(" ") : null });
 			} else {
 				e.target.value = e.target.value.substring(0, 19);
 			}
@@ -32,8 +31,17 @@ function App() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		for (let i in formData) {
-			console.log(formData[i]);
-			console.log(Boolean(formData[i]));
+			if (!formData[i]) {
+				let label;
+				i === "mm" || i === "yy" ? label = "labelmmyy" : label = `label${i}`
+				document.getElementById(`${label}`).nextElementSibling.textContent = "Can´t be blank";
+				document.getElementById(`${label}`).nextElementSibling.classList.add("label--show")
+			}
+		}
+		if (formData.number.match(/[^0-9]/g)) {
+			console.log("number")
+			document.getElementById("labelnumber").nextElementSibling.textContent = "Wrong format, numbers only";
+			document.getElementById("labelnumber").nextElementSibling.classList.add("label--show");
 		}
 	}
 
@@ -54,28 +62,32 @@ function App() {
 
 			{!validate ?
 				<form className='cardForm' onSubmit={handleSubmit}>
-					<label>
+					<label id='labelname'>
 						Cardholder Name
 						<input type="text" placeholder="e.g. Jane Appleseed" onChange={handleInput} name="name" className='card-input' />
 					</label>
+					<p></p>
 
-					<label>
+					<label id='labelnumber'>
 						Card Number
 						<input type="text" placeholder="1234 5678 9123 0000" onChange={handleInput} name="number" className='card-input' maxLength={19} />
 					</label>
+					<p></p>
 
-					<label>
+					<label id='labelmmyy'>
 						Exp. Date (MM/YY)
 						<div>
 							<input type="text" placeholder='MM' onChange={handleInput} name="mm" className='card-input' />
 							<input type="text" placeholder='YY' onChange={handleInput} name="yy" className='card-input' />
 						</div>
 					</label>
+					<p></p>
 
-					<label>
+					<label id='labelcvc'>
 						CVC
 						<input type="text" placeholder='e.g. 123' onChange={handleInput} name="cvc" className='card-input' />
 					</label>
+					<p></p>
 
 					<button type='submit' className='btn-primary'>Confirm</button>
 				</form>
@@ -90,5 +102,4 @@ function App() {
 		</div>
 	)
 }
-
 export default App
