@@ -1,9 +1,12 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import CardThanks from './components/CardThanks';
+import CardForm from './components/CardForm';
+import './App.css';
 
 function App() {
 	const [formData, setFormData] = useState({ name: null, number: null, mm: null, yy: null, cvc: null });
-	let validate = false;
+	const [validate, setValidate] = useState(false);
+
 
 	const handleInput = (e) => {
 		if (e.target.name === "number") {
@@ -28,21 +31,34 @@ function App() {
 		}
 	}
 
+	const handleError = (target, message, type) => {
+		document.querySelector(`#${target}`).nextElementSibling.innerHTML = message;
+		if (type === "add") {
+			document.querySelector(`#${target}`).classList.add(`input--error`);
+			document.querySelector(`#${target}`).nextElementSibling.classList.remove("info-hidden");
+		} else {
+			document.querySelector(`#${target}`).classList.remove(`input--error`);
+			document.querySelector(`#${target}`).nextElementSibling.classList.add("info-hidden");
+		}
+	}
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		for (let i in formData) {
+			let label;
+			i === "mm" || i === "yy" ? label = "labelmmyy" : label = `label${i}`;
+			console.log(!formData[i]);
 			if (!formData[i]) {
-				let label;
-				i === "mm" || i === "yy" ? label = "labelmmyy" : label = `label${i}`
-				document.getElementById(`${label}`).nextElementSibling.textContent = "Can´t be blank";
-				document.getElementById(`${label}`).nextElementSibling.classList.add("label--show")
-			}
+				handleError(label, `Can´t be blank`, "add");
+			} else handleError(label, "", "remove");
 		}
-		if (formData.number.match(/[^0-9]/g)) {
-			console.log("number")
-			document.getElementById("labelnumber").nextElementSibling.textContent = "Wrong format, numbers only";
-			document.getElementById("labelnumber").nextElementSibling.classList.add("label--show");
-		}
+		if (formData.number && formData.number.match(/[^0-9]/g)) {
+			handleError("labelnumber", "Wrong format, numbers only", "add");
+		} else handleError("labelnumber", "", "remove");
+
+		if (formData.number && formData.number.length < 19) {
+			handleError("labelnumer", "Number is too short", "add");
+		} else handleError("labelnumber", "", "remove");
 	}
 
 	return (
@@ -60,45 +76,7 @@ function App() {
 				<div className='cardBack'><span>{formData.cvc || "000"}</span></div>
 			</div>
 
-			{!validate ?
-				<form className='cardForm' onSubmit={handleSubmit}>
-					<label id='labelname'>
-						Cardholder Name
-						<input type="text" placeholder="e.g. Jane Appleseed" onChange={handleInput} name="name" className='card-input' />
-					</label>
-					<p></p>
-
-					<label id='labelnumber'>
-						Card Number
-						<input type="text" placeholder="1234 5678 9123 0000" onChange={handleInput} name="number" className='card-input' maxLength={19} />
-					</label>
-					<p></p>
-
-					<label id='labelmmyy'>
-						Exp. Date (MM/YY)
-						<div>
-							<input type="text" placeholder='MM' onChange={handleInput} name="mm" className='card-input' />
-							<input type="text" placeholder='YY' onChange={handleInput} name="yy" className='card-input' />
-						</div>
-					</label>
-					<p></p>
-
-					<label id='labelcvc'>
-						CVC
-						<input type="text" placeholder='e.g. 123' onChange={handleInput} name="cvc" className='card-input' />
-					</label>
-					<p></p>
-
-					<button type='submit' className='btn-primary'>Confirm</button>
-				</form>
-				:
-				<div className='cardThanks'>
-					<img src="src/assets/icon-complete.svg" alt="" />
-					<p>Thank you!</p>
-					<p>We've added your card details</p>
-					<button className='btn-primary'>Continue</button>
-				</div>
-			}
+			{!validate ? <CardForm handleSubmit={handleSubmit} handleInput={handleInput} /> : <CardThanks />}
 		</div>
 	)
 }

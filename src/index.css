@@ -32,6 +32,15 @@ body::after {
 	z-index: -100;
 }
 
+.info {
+	transition: height 0.5s ease-in-out;
+	margin: 0;
+}
+
+.info--hidden {
+	height: 0;
+}
+
 @media screen and (max-width: 600px) {
 	.App {
 		flex-direction: column;
