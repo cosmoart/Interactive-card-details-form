@@ -31,15 +31,11 @@ function App() {
 		}
 	}
 
-	const handleError = (target, message, type) => {
-		if (type === "add") {
-			document.querySelector(`[name="${target}"]`).classList.add(`input--error`);
-			document.querySelector(`.label${target}`).nextElementSibling.innerHTML = message;
-			document.querySelector(`.label${target}`).nextElementSibling.classList.remove("info--hidden");
-		} else {
-			document.querySelector(`[name="${target}"]`).classList.remove(`input--error`);
-			document.querySelector(`.label${target}`).nextElementSibling.classList.add("info--hidden");
-		}
+	const handleError = (target, message, type = "add") => {
+		if (type === "add") document.querySelector(`.label${target}`).nextElementSibling.innerHTML = message;
+
+		document.querySelector(`[name="${target}"]`).classList[type](`input--error`);
+		document.querySelector(`.label${target}`).nextElementSibling.classList[type === "add" ? "remove" : "add"]("info--hidden");
 	}
 
 	const handleSubmit = (e) => {
@@ -47,17 +43,25 @@ function App() {
 
 		for (let i in formData) {
 			if (!formData[i]) {
-				handleError(i, "Can`t be blank", "add");
+				handleError(i, "Can`t be blank");
 			} else handleError(i, "", "remove");
 		}
-		if (formData.number) {
-			if (formData.number.match(/[^0-9]s/g)) {
-				handleError("labelnumber", "Wrong format, numbers only", "add");
-			} else handleError("labelnumber", "", "remove");
 
+		if (formData.number) {
 			if (formData.number.length < 19) {
-				handleError("labelnumber", "Number is too short", "add");
-			} else handleError("labelnumber", "", "remove");
+				handleError("number", "Number is too short");
+			} else if (formData.number.match(/[^0-9\s]/g)) {
+				handleError("number", "Wrong format, numbers only");
+			} else handleError("number", "", "remove");
+		}
+
+		if (formData.cvc) {
+			if (formData.cvc.length < 3) {
+				handleError("cvc", "CVC is too short");
+			} else handleError("cvc", "", "remove");
+		}
+		if (formData.mm || formData.yy) {
+			if ((formData.mm.length === 0 || formData.yy.length === 0)) handleError("yy", "Can`t be blank");
 		}
 	}
 

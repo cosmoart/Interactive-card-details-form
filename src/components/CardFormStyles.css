@@ -1,5 +1,5 @@
 .info--hidden {
-	height: 0;
+	height: 0 !important;
 }
 
 .cardForm {
@@ -15,11 +15,15 @@
 	flex-direction: column;
 }
 
-.cardForm .info {
+.info {
 	transition: height 0.3s ease-in-out;
 	font-size: 14px;
 	margin-top: 4px;
 	margin-bottom: 15px;
 	overflow: hidden;
 	height: 20px;
+}
+
+.input--error {
+	border: 1px solid red;
 }
