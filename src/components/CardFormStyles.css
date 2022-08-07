@@ -45,8 +45,8 @@
 }
 
 .cardForm label {
-	margin-bottom: 19px;
-	gap: 12px;
+	margin-bottom: 16px;
+	gap: 14px;
 	text-transform: uppercase;
 	display: flex;
 	flex-direction: column;
@@ -73,7 +73,7 @@
 
 .cvc-mmyy {
 	display: flex;
-	margin-bottom: 30px;
+	margin-bottom: 26px;
 	position: relative;
 	gap: 10px;
 }

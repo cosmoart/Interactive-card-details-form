@@ -8,12 +8,12 @@
 .cardFront,
 .cardBack {
 	max-width: 28rem;
-	height: 15rem;
+	height: 15.5rem;
 	border-radius: 10px;
 	background-size: cover;
 	color: var(--White);
 	position: relative;
-	padding: 27px;
+	padding: 32px;
 }
 
 /* Card Front ========*/
@@ -24,18 +24,20 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-	margin: 0 auto 20px auto;
+	margin: 0 auto 32px auto;
 }
 
 .cardFront div {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
+	word-spacing: 6px;
 }
 
 .cardFront>span {
 	font-size: 27px;
 	letter-spacing: 4px;
+	margin-bottom: 25px;
 }
 
 .cardFront div span {
@@ -51,14 +53,16 @@
 .cardBack {
 	background-image: url("assets/bg-card-back.png");
 	background-size: contain;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	margin: 0 5rem 0 auto;
+	margin: 0 4.3rem 0 auto;
 }
 
 .cardBack span {
 	position: absolute;
-	right: 38px;
-	top: 78px;
+	right: 55px;
+	top: 113px;
+	font-size: 18px;
 }
 
 .cardFront::after {
@@ -69,26 +73,33 @@
 }
 
 /* ===== */
-.cardForm,
-.cardThanks,
 .cardDeco {
-	width: 50%;
+	width: 54%;
+}
+
+.cardForm,
+.cardThanks {
+	width: 46%;
 }
 
 .btn-primary {
 	background: var(--Verdarviolet);
 	border: none;
-	padding: 13px 20px;
+	padding: 15px 20px;
 	color: var(--White);
 	cursor: pointer;
 	border-radius: 6px;
-	margin-bottom: 10px;
+	font-size: 18px;
 }
 
 .card-input {
-	padding: 10px;
+	padding: 13px;
 	border: 1px solid var(--Dargrayisviolet);
-	border-radius: 3px;
+	border-radius: 7px;
+}
+
+.card-input::placeholder {
+	opacity: .7;
 }
 
 @media screen and (max-width: 600px) {
