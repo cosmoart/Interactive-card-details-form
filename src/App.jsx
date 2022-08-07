@@ -32,33 +32,33 @@ function App() {
 	}
 
 	const handleError = (target, message, type) => {
-		document.querySelector(`#${target}`).nextElementSibling.innerHTML = message;
 		if (type === "add") {
-			document.querySelector(`#${target}`).classList.add(`input--error`);
-			document.querySelector(`#${target}`).nextElementSibling.classList.remove("info-hidden");
+			document.querySelector(`[name="${target}"]`).classList.add(`input--error`);
+			document.querySelector(`.label${target}`).nextElementSibling.innerHTML = message;
+			document.querySelector(`.label${target}`).nextElementSibling.classList.remove("info--hidden");
 		} else {
-			document.querySelector(`#${target}`).classList.remove(`input--error`);
-			document.querySelector(`#${target}`).nextElementSibling.classList.add("info-hidden");
+			document.querySelector(`[name="${target}"]`).classList.remove(`input--error`);
+			document.querySelector(`.label${target}`).nextElementSibling.classList.add("info--hidden");
 		}
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		for (let i in formData) {
-			let label;
-			i === "mm" || i === "yy" ? label = "labelmmyy" : label = `label${i}`;
-			console.log(!formData[i]);
-			if (!formData[i]) {
-				handleError(label, `Can´t be blank`, "add");
-			} else handleError(label, "", "remove");
-		}
-		if (formData.number && formData.number.match(/[^0-9]/g)) {
-			handleError("labelnumber", "Wrong format, numbers only", "add");
-		} else handleError("labelnumber", "", "remove");
 
-		if (formData.number && formData.number.length < 19) {
-			handleError("labelnumer", "Number is too short", "add");
-		} else handleError("labelnumber", "", "remove");
+		for (let i in formData) {
+			if (!formData[i]) {
+				handleError(i, "Can`t be blank", "add");
+			} else handleError(i, "", "remove");
+		}
+		if (formData.number) {
+			if (formData.number.match(/[^0-9]s/g)) {
+				handleError("labelnumber", "Wrong format, numbers only", "add");
+			} else handleError("labelnumber", "", "remove");
+
+			if (formData.number.length < 19) {
+				handleError("labelnumber", "Number is too short", "add");
+			} else handleError("labelnumber", "", "remove");
+		}
 	}
 
 	return (

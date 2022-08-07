@@ -1,3 +1,5 @@
+import './CardThanksStyles.css';
+
 export default function CardThanks(props) {
 	return (
 		<div className='cardThanks'>

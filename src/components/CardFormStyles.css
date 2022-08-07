@@ -1,0 +1,25 @@
+.info--hidden {
+	height: 0;
+}
+
+.cardForm {
+	display: flex;
+	flex-direction: column;
+	max-width: 24rem;
+	margin: auto;
+}
+
+.cardForm label {
+	text-transform: uppercase;
+	display: flex;
+	flex-direction: column;
+}
+
+.cardForm .info {
+	transition: height 0.3s ease-in-out;
+	font-size: 14px;
+	margin-top: 4px;
+	margin-bottom: 15px;
+	overflow: hidden;
+	height: 20px;
+}

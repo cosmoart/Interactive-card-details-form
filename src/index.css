@@ -14,13 +14,6 @@ body {
 	font-family: 'Space Grotesk', sans-serif;
 }
 
-.App {
-	display: flex;
-	min-height: 100vh;
-	align-items: center;
-	justify-content: center;
-}
-
 body::after {
 	content: url("assets/bg-main-desktop.png");
 	width: 40%;
@@ -32,27 +25,16 @@ body::after {
 	z-index: -100;
 }
 
-.info {
-	transition: height 0.5s ease-in-out;
-	margin: 0;
-}
-
-.info--hidden {
-	height: 0;
+.App {
+	display: flex;
+	min-height: 100vh;
+	align-items: center;
+	justify-content: center;
 }
 
 @media screen and (max-width: 600px) {
 	.App {
 		flex-direction: column;
-	}
-
-	.cardDeco {
-		width: 100%;
-	}
-
-	.cardForm,
-	.cardThanks {
-		width: 100%;
 	}
 
 	body::after {

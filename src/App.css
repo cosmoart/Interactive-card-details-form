@@ -1,3 +1,15 @@
+.cardFront,
+.cardBack {
+	max-width: 20rem;
+	height: 10rem;
+	border-radius: 10px;
+	background-size: cover;
+	color: var(--White);
+	position: relative;
+	padding: 20px;
+}
+
+/* Card Front ========*/
 .cardFront {
 	background: url("assets/bg-card-front.png") no-repeat;
 	display: flex;
@@ -20,6 +32,8 @@
 	text-transform: uppercase;
 }
 
+
+/* Card Back =======*/
 .cardBack {
 	background: url("assets/bg-card-back.png") no-repeat;
 }
@@ -30,17 +44,6 @@
 	top: 68px;
 }
 
-.cardFront,
-.cardBack {
-	max-width: 20rem;
-	height: 10rem;
-	border-radius: 10px;
-	background-size: cover;
-	color: var(--White);
-	position: relative;
-	padding: 20px;
-}
-
 .cardFront::after {
 	content: url("assets/card-logo.svg");
 	position: absolute;
@@ -48,24 +51,7 @@
 	left: 10px;
 }
 
-.cardForm {
-	display: flex;
-	flex-direction: column;
-	max-width: 24rem;
-	margin: auto;
-}
-
-.cardForm label {
-	text-transform: uppercase;
-	display: flex;
-	flex-direction: column;
-}
-
-.cardForm .info {
-	font-size: 14px;
-	margin-bottom: 15px;
-}
-
+/* ===== */
 .cardDeco {
 	width: 55%;
 }
@@ -88,4 +74,15 @@
 	padding: 10px;
 	border: 1px solid var(--Dargrayisviolet);
 	border-radius: 3px;
+}
+
+@media screen and (max-width: 600px) {
+	.cardDeco {
+		width: 100%;
+	}
+
+	.cardForm,
+	.cardThanks {
+		width: 100%;
+	}
 }

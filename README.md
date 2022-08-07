@@ -55,7 +55,7 @@ Users should be able to:
 
 <table>
         <tr>
-		            <td>
+		    <td>
                 <img src="./screenshots/mobile-solution.webp"
                     alt="Mobile solution" width="100%" title="Mobile solution"  />
             </td>
