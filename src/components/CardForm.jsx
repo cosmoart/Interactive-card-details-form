@@ -30,7 +30,7 @@ export default function CardForm({ handleSubmit, handleInput }) {
 			</label>
 			<p className='info info--hidden'></p>
 
-			<button type='submit' className='btn-primary'>Confirm</button>
+			<button type='submit' className='btn-submit btn-primary'>Confirm</button>
 		</form>
 	);
 }

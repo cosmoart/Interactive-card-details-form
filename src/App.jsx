@@ -32,8 +32,13 @@ function App() {
 	}
 
 	const handleError = (target, message, type = "add") => {
-		if (type === "add") document.querySelector(`.label${target}`).nextElementSibling.innerHTML = message;
+		if (type === "add") {
+			const submitBtn = document.querySelector('.btn-submit');
+			submitBtn.classList.add("shake");
+			submitBtn.addEventListener("animationend", () => submitBtn.classList.remove("shake"));
+		}
 
+		document.querySelector(`.label${target}`).nextElementSibling.innerHTML = message;
 		document.querySelector(`[name="${target}"]`).classList[type](`input--error`);
 		document.querySelector(`.label${target}`).nextElementSibling.classList[type === "add" ? "remove" : "add"]("info--hidden");
 	}
@@ -60,14 +65,19 @@ function App() {
 				handleError("cvc", "CVC is too short");
 			} else handleError("cvc", "", "remove");
 		}
-		if (formData.mm || formData.yy) {
-			if ((formData.mm.length === 0 || formData.yy.length === 0)) handleError("yy", "Can`t be blank");
-		}
+
+		if (!formData.mm || !formData.yy) handleError("mm", "Can`t be blank");
+
+		document.querySelectorAll('.input--error').length === 0 && setValidate(true);
+	}
+
+	const resetForm = () => {
+		setFormData({ name: null, number: null, mm: null, yy: null, cvc: null });
+		setValidate(false);
 	}
 
 	return (
 		<div className="App">
-
 			<div className='cardDeco'>
 				<div className='cardFront'>
 					<span>{formData.number || "0000 0000 0000 0000"}</span>
@@ -80,7 +90,7 @@ function App() {
 				<div className='cardBack'><span>{formData.cvc || "000"}</span></div>
 			</div>
 
-			{!validate ? <CardForm handleSubmit={handleSubmit} handleInput={handleInput} /> : <CardThanks />}
+			{!validate ? <CardForm handleSubmit={handleSubmit} handleInput={handleInput} /> : <CardThanks resetForm={resetForm} />}
 		</div>
 	)
 }
