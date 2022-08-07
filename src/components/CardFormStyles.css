@@ -41,16 +41,17 @@
 	flex-direction: column;
 	max-width: 24rem;
 	margin: auto;
-	margin-left: 2rem;
+	margin-left: 3.5rem;
 }
 
 .cardForm label {
-	gap: 5px;
+	margin-bottom: 19px;
+	gap: 12px;
 	text-transform: uppercase;
 	display: flex;
 	flex-direction: column;
 	color: var(--Verdarviolet);
-	font-size: 14px;
+	font-size: 15px;
 }
 
 .labelmm {
@@ -94,7 +95,7 @@
 	overflow: hidden;
 	height: 20px;
 	color: var(--Red);
-	display: block;
+	/* display: block; */
 }
 
 @media screen and (max-width: 600px) {

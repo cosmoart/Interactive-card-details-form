@@ -84,6 +84,7 @@ function App() {
 			</div>
 
 			{!validate ? <CardForm handleSubmit={handleSubmit} handleInput={handleInput} /> : <CardThanks resetForm={resetForm} />}
+			<img src="../design/desktop-design.jpg" alt="adf" className='bg' />
 		</div>
 	)
 }
