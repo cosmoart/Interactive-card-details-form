@@ -1,7 +1,7 @@
 .cardFront,
 .cardBack {
 	max-width: 20rem;
-	height: 10rem;
+	height: 11rem;
 	border-radius: 10px;
 	background-size: cover;
 	color: var(--White);
@@ -16,12 +16,17 @@
 	flex-direction: column;
 	justify-content: flex-end;
 	margin-bottom: 20px;
+	margin: 0 4rem 2rem auto;
 }
 
 .cardFront div {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
+}
+
+.cardFront>span {
+	font-size: 20px;
 }
 
 .cardFront div span {
@@ -35,7 +40,9 @@
 
 /* Card Back =======*/
 .cardBack {
-	background: url("assets/bg-card-back.png") no-repeat;
+	background-image: url("assets/bg-card-back.png");
+	background-repeat: no-repeat;
+	margin: 0 2rem 2rem auto;
 }
 
 .cardBack span {
@@ -79,6 +86,22 @@
 @media screen and (max-width: 600px) {
 	.cardDeco {
 		width: 100%;
+	}
+
+	.cardFront,
+	.cardBack {
+		margin: 1rem auto;
+	}
+
+	.cardFront {
+		margin: 1rem 2rem 1rem auto;
+	}
+
+	.cardBack {
+		position: absolute;
+		top: 5rem;
+		left: 2rem;
+		width: inherit;
 	}
 
 	.cardForm,

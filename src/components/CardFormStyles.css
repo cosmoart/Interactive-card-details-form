@@ -1,5 +1,6 @@
 .info--hidden {
 	height: 0 !important;
+	display: none;
 }
 
 .input--error {
@@ -40,19 +41,65 @@
 	flex-direction: column;
 	max-width: 24rem;
 	margin: auto;
+	margin-left: 2rem;
 }
 
 .cardForm label {
+	gap: 5px;
 	text-transform: uppercase;
 	display: flex;
 	flex-direction: column;
+	color: var(--Verdarviolet);
+	font-size: 14px;
+}
+
+.labelmm {
+	width: 50%;
+}
+
+.labelcvc {
+	width: 50%;
+}
+
+.labelmm div {
+	display: flex;
+	gap: 10px;
+}
+
+.labelmm input {
+	width: 100%;
+}
+
+.cvc-mmyy {
+	display: flex;
+	margin-bottom: 30px;
+	position: relative;
+	gap: 10px;
+}
+
+.cvc-mmyy .info {
+	position: absolute;
+	bottom: -40px;
+}
+
+.cvc-mmyy .info:last-child {
+	right: 1rem;
 }
 
 .info {
 	transition: height 0.3s ease-in-out;
-	font-size: 14px;
+	font-size: 13px;
 	margin-top: 4px;
 	margin-bottom: 15px;
 	overflow: hidden;
 	height: 20px;
+	color: var(--Red);
+	display: block;
+}
+
+@media screen and (max-width: 600px) {
+	.cardForm {
+		margin: 0;
+		padding: 2rem;
+	}
 }

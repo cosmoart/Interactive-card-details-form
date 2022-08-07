@@ -15,20 +15,22 @@ export default function CardForm({ handleSubmit, handleInput }) {
 			</label>
 			<p className='info info--hidden'></p>
 
-			<label className='labelmm labelyy'>
-				Exp. Date (MM/YY)
-				<div>
-					<input type="text" placeholder='MM' onChange={handleInput} name="mm" className='card-input' />
-					<input type="text" placeholder='YY' onChange={handleInput} name="yy" className='card-input' />
-				</div>
-			</label>
-			<p className='info info--hidden'></p>
+			<div className='cvc-mmyy'>
+				<label className='labelmm labelyy'>
+					Exp. Date (MM/YY)
+					<div>
+						<input type="text" placeholder='MM' onChange={handleInput} name="mm" className='card-input' />
+						<input type="text" placeholder='YY' onChange={handleInput} name="yy" className='card-input' />
+					</div>
+				</label>
+				<p className='info info--hidden'></p>
 
-			<label className='labelcvc'>
-				CVC
-				<input type="text" placeholder='e.g. 123' onChange={handleInput} name="cvc" className='card-input' />
-			</label>
-			<p className='info info--hidden'></p>
+				<label className='labelcvc'>
+					CVC
+					<input type="text" placeholder='e.g. 123' onChange={handleInput} name="cvc" className='card-input' />
+				</label>
+				<p className='info info--hidden'></p>
+			</div>
 
 			<button type='submit' className='btn-submit btn-primary'>Confirm</button>
 		</form>
