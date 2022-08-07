@@ -9,26 +9,19 @@ function App() {
 
 
 	const handleInput = (e) => {
-		if (e.target.name === "number") {
-			if (e.target.value.length < 20) {
-				let valueWithoutSpaces = e.target.value.toString().replace(/\s/g, '');
-				e.target.value = valueWithoutSpaces ? valueWithoutSpaces.match(/.{1,4}/g).join(" ") : "";
-				setFormData({ ...formData, number: valueWithoutSpaces ? valueWithoutSpaces.match(/.{1,4}/g).join(" ") : null });
-			} else {
-				e.target.value = e.target.value.substring(0, 19);
-			}
-		} else if (e.target.name === "mm" || e.target.name === "yy") {
-			e.target.value = e.target.value.toString().replace(/[^0-9]/g, '').substring(0, 2);
-
-			if (e.target.name === "mm" && e.target.value > 12) e.target.value = "12"
-
-			setFormData({ ...formData, [e.target.name]: e.target.value });
-		} else if (e.target.name === "cvc") {
-			e.target.value.length > 2 && (e.target.value = e.target.value.substring(0, 4));
-			setFormData({ ...formData, [e.target.name]: e.target.value });
-		} else {
-			setFormData({ ...formData, [e.target.name]: e.target.value });
+		if (e.target.name === "number" && e.target.value) {
+			e.target.value = e.target.value.replace(/\s/g, '').replace(/(.{4})/g, '$1 ').trim().slice(0, 20);
 		}
+
+		if (e.target.name === "mm" || e.target.name === "yy") {
+			e.target.value = e.target.value.toString().replace(/[^0-9]/g, '').substring(0, 2);
+			if (e.target.name === "mm" && e.target.value > 12) e.target.value = "12"
+		}
+
+		if (e.target.name === "cvc") {
+			e.target.value = e.target.value.substring(0, 4);
+		}
+		setFormData({ ...formData, [e.target.name]: e.target.value });
 	}
 
 	const handleError = (target, message, type = "add") => {
