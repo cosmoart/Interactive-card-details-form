@@ -44,7 +44,7 @@ body::after {
 	}
 
 	body::after {
-		background: url("assets/bg-main-mobile.png") no-repeat;
+		background-image: url("assets/bg-main-mobile.png");
 		height: 40%;
 		width: 100%;
 	}
