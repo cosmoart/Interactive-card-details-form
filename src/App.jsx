@@ -59,9 +59,21 @@ function App() {
 			} else handleError("cvc", "", "remove");
 		}
 
-		if (!formData.mm || !formData.yy) handleError("mm", "Can`t be blank");
+		if (!formData.mm) handleError("mm", "Can`t be blank");
+		if (!formData.yy) handleError("yy", "Can`t be blank");
 
-		document.querySelectorAll('.input--error').length === 0 && setValidate(true);
+		if (document.querySelectorAll('.input--error').length === 0) {
+			// add the class body-slider to the body element
+			document.body.classList.add("body-slider");
+			// add transform: translateX(50vw); to the class cardForm
+			document.querySelector('.cardForm').style.transform = "translateX(50vw)";
+
+			// document.body.addEventListener("transitionend", () => {
+			// 	document.body.classList.remove("body-slider");
+			// 	document.querySelector('.cardForm').style.transform = "translateX(0)";
+			// })
+
+		};
 	}
 
 	const resetForm = () => {
@@ -83,7 +95,10 @@ function App() {
 				<div className='cardBack'><span>{formData.cvc || "000"}</span></div>
 			</div>
 
-			{!validate ? <CardForm handleSubmit={handleSubmit} handleInput={handleInput} /> : <CardThanks resetForm={resetForm} />}
+			{!validate
+				? <div className='cardOverflow'><CardForm handleSubmit={handleSubmit} handleInput={handleInput} /></div>
+				: <div className='cardOverflow'><CardThanks resetForm={resetForm} /></div>
+			}
 			<img src="../design/desktop-design.jpg" alt="adf" className='bg' />
 		</div>
 	)

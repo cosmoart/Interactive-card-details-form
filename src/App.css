@@ -3,6 +3,7 @@
 	top: 0;
 	left: 0;
 	opacity: .5;
+	display: none;
 }
 
 .cardFront,
@@ -35,7 +36,7 @@
 }
 
 .cardFront>span {
-	font-size: 27px;
+	font-size: clamp(22px, 2.5vw, 27px);
 	letter-spacing: 4px;
 	margin-bottom: 25px;
 }
@@ -55,14 +56,14 @@
 	background-size: contain;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	margin: 0 4.3rem 0 auto;
+	margin: 0 2rem 0 auto;
 }
 
 .cardBack span {
 	position: absolute;
-	right: 55px;
-	top: 113px;
-	font-size: 18px;
+	right: 60px;
+	top: 109px;
+	font-size: 24px;
 }
 
 .cardFront::after {
@@ -75,11 +76,17 @@
 /* ===== */
 .cardDeco {
 	width: 54%;
+	padding: 2rem;
+}
+
+.cardOverflow {
+	width: 46%;
+	overflow: hidden;
 }
 
 .cardForm,
 .cardThanks {
-	width: 46%;
+	transition: transform 0.5s ease-in-out;
 }
 
 .btn-primary {
@@ -92,6 +99,10 @@
 	font-size: 18px;
 }
 
+.btn-primary:hover {
+	opacity: .9;
+}
+
 .card-input {
 	padding: 13px;
 	border: 1px solid var(--Dargrayisviolet);
@@ -102,7 +113,32 @@
 	opacity: .7;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 450px) {
+
+	.cardFront,
+	.cardBack {
+		transform: scale(.7);
+	}
+}
+
+@media screen and (max-width: 585px) {
+
+	.cardFront,
+	.cardBack {
+		transform: scale(.8);
+	}
+
+	.cardFront {
+		top: 8rem !important;
+		left: 0 !important;
+	}
+
+	.cardBack {
+		right: 0 !important;
+	}
+}
+
+@media screen and (max-width: 750px) {
 	.cardDeco {
 		width: 100%;
 	}
@@ -114,17 +150,31 @@
 
 	.cardFront {
 		margin: 1rem 2rem 1rem auto;
+		position: absolute;
+		width: inherit;
+		z-index: 10;
+		top: 10rem;
+	}
+
+	.cardFront {
+		left: 3rem;
 	}
 
 	.cardBack {
 		position: absolute;
-		top: 5rem;
-		left: 2rem;
+		top: 2rem;
+		right: 3rem;
 		width: inherit;
 	}
 
 	.cardForm,
 	.cardThanks {
 		width: 100%;
+	}
+}
+
+@media screen and (max-width: 1010px) {
+	.cardBack {
+		margin: 0 auto;
 	}
 }

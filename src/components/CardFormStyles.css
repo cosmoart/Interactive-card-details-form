@@ -1,6 +1,5 @@
 .info--hidden {
 	height: 0 !important;
-	display: none;
 }
 
 .input--error {
@@ -41,7 +40,7 @@
 	flex-direction: column;
 	max-width: 24rem;
 	margin: auto;
-	margin-left: 3.5rem;
+	padding: 1rem;
 }
 
 .cardForm label {
@@ -81,6 +80,7 @@
 .cvc-mmyy .info {
 	position: absolute;
 	bottom: -40px;
+	transform: translateY(-25px);
 }
 
 .cvc-mmyy .info:last-child {
@@ -95,12 +95,27 @@
 	overflow: hidden;
 	height: 20px;
 	color: var(--Red);
-	/* display: block; */
+	transform: translateY(-10px);
+	margin: 0;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 585px) {
+	.cardForm {
+		margin-top: 14rem;
+	}
+}
+
+@media screen and (max-width: 750px) {
 	.cardForm {
 		margin: 0;
 		padding: 2rem;
+		margin-top: 18rem;
+	}
+}
+
+@media screen and (min-width: 1350px) {
+	.cardForm {
+		margin-left: 3.5rem;
+		padding: 0;
 	}
 }

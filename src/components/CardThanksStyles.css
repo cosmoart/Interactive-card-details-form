@@ -1,0 +1,23 @@
+.cardThanks {
+	text-align: center;
+	color: var(--Verdarviolet);
+	max-width: 30rem;
+	margin-right: auto;
+}
+
+.cardThanks p:first-of-type {
+	font-size: 28px;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+
+.cardThanks p:last-of-type {
+	opacity: .8;
+	font-size: 16px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.cardThanks .btn-primary {
+	width: 60%;
+}

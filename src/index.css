@@ -15,14 +15,35 @@ body {
 }
 
 body::after {
-	content: url("assets/bg-main-desktop.png");
-	width: 40%;
+	content: "";
+	background-image: url("assets/bg-main-desktop.png");
+	background-size: cover;
+	width: 33.5%;
 	height: 100vh;
 	overflow: hidden;
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: -100;
+	transition: width 0.5s ease-in-out;
+}
+
+.body-slider::after {
+	animation: slider 1s ease-in-out;
+}
+
+@keyframes slider {
+	0% {
+		width: 33.5%;
+	}
+
+	50% {
+		width: 100%;
+	}
+
+	100% {
+		width: 33.5%;
+	}
 }
 
 .App {
@@ -32,13 +53,12 @@ body::after {
 	justify-content: center;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
 	.App {
 		flex-direction: column;
 	}
 
 	body::after {
-		content: "";
 		background: url("assets/bg-main-mobile.png") no-repeat;
 		background-size: cover;
 		height: 40%;
