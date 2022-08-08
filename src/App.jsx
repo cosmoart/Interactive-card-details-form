@@ -85,7 +85,7 @@ function App() {
 	}
 
 	return (
-		<div className="App">
+		<main className="App">
 			<div className='cardDeco'>
 				<div className='cardFront'>
 					<span>{formData.number || "0000 0000 0000 0000"}</span>
@@ -102,7 +102,7 @@ function App() {
 				? <div className='cardOverflow'><div><CardForm handleSubmit={handleSubmit} handleInput={handleInput} /></div></div>
 				: <div className='cardOverflow'><div><CardThanks resetForm={resetForm} /></div></div>
 			}
-		</div>
+		</main>
 	)
 }
 export default App
