@@ -104,19 +104,11 @@
 	opacity: .7;
 }
 
-@media screen and (max-width: 450px) {
-
-	.cardFront,
-	.cardBack {
-		transform: scale(.7);
-	}
-}
-
 @media screen and (max-width: 585px) {
 
 	.cardFront,
 	.cardBack {
-		transform: scale(.8);
+		transform: scale(.8) !important;
 	}
 
 	.cardFront {
