@@ -104,4 +104,4 @@ This challenge was a great learning opportunity, it was also very useful to rein
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 [live-page]: https://interactive-card-details-form.vercel.app
-[solution-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[solution-url]: https://www.frontendmentor.io/solutions/interactive-card-details-form-solution-tKY7SrfIs_
