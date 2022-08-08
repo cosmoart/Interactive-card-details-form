@@ -1,11 +1,3 @@
-.bg {
-	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: .5;
-	display: none;
-}
-
 .cardFront,
 .cardBack {
 	max-width: 28rem;
@@ -174,6 +166,15 @@
 	.cardOverflow {
 		width: 100%;
 	}
+}
+
+@media screen and (max-width: 1400px) {
+
+	.cardFront,
+	.cardBack {
+		transform: scale(.85);
+	}
+
 }
 
 @media screen and (max-width: 1010px) {

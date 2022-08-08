@@ -10,7 +10,7 @@ function App() {
 
 	const handleInput = (e) => {
 		if (e.target.name === "number" && e.target.value) {
-			e.target.value = e.target.value.replace(/\s/g, '').replace(/(.{4})/g, '$1 ').trim().slice(0, 20);
+			e.target.value = e.target.value.replace(/\s/g, '').replace(/(.{4})/g, '$1 ').trim().slice(0, 19);
 		}
 
 		if (e.target.name === "mm" || e.target.name === "yy") {
@@ -102,7 +102,6 @@ function App() {
 				? <div className='cardOverflow'><div><CardForm handleSubmit={handleSubmit} handleInput={handleInput} /></div></div>
 				: <div className='cardOverflow'><div><CardThanks resetForm={resetForm} /></div></div>
 			}
-			<img src="../design/desktop-design.jpg" alt="adf" className='bg' />
 		</div>
 	)
 }

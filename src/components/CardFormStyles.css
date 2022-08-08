@@ -53,6 +53,10 @@
 	font-size: 15px;
 }
 
+.cardForm input:hover {
+	border: 1px solid hsl(249, 99%, 64%);
+}
+
 .labelmm {
 	width: 50%;
 }
