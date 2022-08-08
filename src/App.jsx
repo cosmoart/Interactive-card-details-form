@@ -36,6 +36,17 @@ function App() {
 		document.querySelector(`.label${target}`).nextElementSibling.classList[type === "add" ? "remove" : "add"]("info--hidden");
 	}
 
+	const animateSlider = (validate) => {
+		document.body.classList.add("body-slider");
+		document.querySelector('.cardOverflow > div').style.transform = "translateX(50vw)";
+
+		setTimeout(() => {
+			setValidate(validate);
+			document.body.classList.remove("body-slider");
+			document.querySelector('.cardOverflow > div').style.transform = "translateX(0)";
+		}, 500);
+	}
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -62,23 +73,12 @@ function App() {
 		if (!formData.mm) handleError("mm", "Can`t be blank");
 		if (!formData.yy) handleError("yy", "Can`t be blank");
 
-		if (document.querySelectorAll('.input--error').length === 0) {
-			// add the class body-slider to the body element
-			document.body.classList.add("body-slider");
-			// add transform: translateX(50vw); to the class cardForm
-			document.querySelector('.cardForm').style.transform = "translateX(50vw)";
-
-			// document.body.addEventListener("transitionend", () => {
-			// 	document.body.classList.remove("body-slider");
-			// 	document.querySelector('.cardForm').style.transform = "translateX(0)";
-			// })
-
-		};
+		if (document.querySelectorAll('.input--error').length === 0) animateSlider(true);
 	}
 
 	const resetForm = () => {
 		setFormData({ name: null, number: null, mm: null, yy: null, cvc: null });
-		setValidate(false);
+		animateSlider(false);
 	}
 
 	return (
@@ -96,8 +96,8 @@ function App() {
 			</div>
 
 			{!validate
-				? <div className='cardOverflow'><CardForm handleSubmit={handleSubmit} handleInput={handleInput} /></div>
-				: <div className='cardOverflow'><CardThanks resetForm={resetForm} /></div>
+				? <div className='cardOverflow'><div><CardForm handleSubmit={handleSubmit} handleInput={handleInput} /></div></div>
+				: <div className='cardOverflow'><div><CardThanks resetForm={resetForm} /></div></div>
 			}
 			<img src="../design/desktop-design.jpg" alt="adf" className='bg' />
 		</div>
