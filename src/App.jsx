@@ -37,13 +37,16 @@ function App() {
 	}
 
 	const animateSlider = (validate) => {
+		let axis;
+		window.matchMedia("(max-width: 750px)").matches ? axis = "Y" : axis = "X";
+		document.querySelector('.cardOverflow > div').style.transform = `translate${axis}(50${axis === "Y" ? "vh" : "vw"})`;
+
 		document.body.classList.add("body-slider");
-		document.querySelector('.cardOverflow > div').style.transform = "translateX(50vw)";
 
 		setTimeout(() => {
 			setValidate(validate);
 			document.body.classList.remove("body-slider");
-			document.querySelector('.cardOverflow > div').style.transform = "translateX(0)";
+			document.querySelector('.cardOverflow > div').style.transform = "translate(0)";
 		}, 500);
 	}
 

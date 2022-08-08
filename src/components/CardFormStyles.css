@@ -100,16 +100,19 @@
 }
 
 @media screen and (max-width: 585px) {
-	.cardForm {
-		margin-top: 14rem;
+	.App::before {
+		height: 20rem !important;
 	}
 }
 
 @media screen and (max-width: 750px) {
 	.cardForm {
-		margin: 0;
 		padding: 2rem;
-		margin-top: 18rem;
+	}
+
+	.App::before {
+		content: "";
+		height: 22rem;
 	}
 }
 

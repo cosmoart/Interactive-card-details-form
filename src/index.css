@@ -25,25 +25,11 @@ body::after {
 	top: 0;
 	left: 0;
 	z-index: -100;
-	transition: width 0.35s ease-in-out;
+	transition: width 0.35s ease-in-out, height 0.35s ease-in-out;
 }
 
 .body-slider::after {
 	width: 100%;
-}
-
-@keyframes slider {
-	0% {
-		width: 33.5%;
-	}
-
-	50% {
-		width: 100%;
-	}
-
-	100% {
-		width: 33.5%;
-	}
 }
 
 .App {
@@ -63,5 +49,9 @@ body::after {
 		background-size: cover;
 		height: 40%;
 		width: 100%;
+	}
+
+	.body-slider::after {
+		height: 100%;
 	}
 }

@@ -21,3 +21,9 @@
 .cardThanks .btn-primary {
 	width: 60%;
 }
+
+@media screen and (max-width: 750px) {
+	.cardThanks {
+		margin: auto;
+	}
+}
