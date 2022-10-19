@@ -1,3 +1,13 @@
+.attribution {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 12px;
+	opacity: 0.5;
+}
+.attribution p {
+	margin: 10px;
+}
 .cardFront,
 .cardBack {
 	max-width: 28rem;
@@ -11,7 +21,7 @@
 
 /* Card Front ========*/
 .cardFront {
-	background-image: url("../assets/bg-card-front.png");
+	background-image: url('../assets/bg-card-front.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 	display: flex;
@@ -43,7 +53,7 @@
 
 /* Card Back =======*/
 .cardBack {
-	background-image: url("../assets/bg-card-back.png");
+	background-image: url('../assets/bg-card-back.png');
 	background-size: contain;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
@@ -58,7 +68,7 @@
 }
 
 .cardFront::after {
-	content: url("../assets/card-logo.svg");
+	content: url('../assets/card-logo.svg');
 	position: absolute;
 	top: 27px;
 	left: 27px;

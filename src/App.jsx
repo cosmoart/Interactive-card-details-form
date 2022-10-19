@@ -8,7 +8,6 @@ function App() {
 	const [formData, setFormData] = useState({ name: null, number: null, mm: null, yy: null, cvc: null });
 	const [validate, setValidate] = useState(false);
 
-	
 	const animateSlider = (validate) => {
 		let axis = window.matchMedia("(max-width: 750px)").matches ? "Y" : "X";
 		document.querySelector('.cardOverflow > div').style.transform = `translate${axis}(50${axis === "Y" ? "vh" : "vw"})`;
@@ -33,6 +32,10 @@ function App() {
 					}
 				</div>
 			</main>
+			<footer className='attribution'>
+				<p>Made with ♥️ by <a href="https://github.com/cosmoart" target="_blank" rel="noopener noreferrer">Cosmo</a> - <a href="https://github.com/cosmoart/Interactive-card-details-form" target="_blank" rel="noopener noreferrer">Repository</a>
+				</p>
+			</footer>
 		</>
 	)
 }
