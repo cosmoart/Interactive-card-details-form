@@ -1,6 +1,58 @@
-import './CardFormStyles.css';
+import '../styles/CardForm.css';
 
-export default function CardForm({ handleSubmit, handleInput }) {
+export default function CardForm({ setFormData, formData, animateSlider }) {
+
+	const handleInput = (e) => {
+		const { name, value } = e.target;
+		if (name === "number") e.target.value = value.replace(/\s/g, '').replace(/(.{4})/g, '$1 ').trim().slice(0, 19);
+		if (name === "mm" || name === "yy") e.target.value = value.toString().replace(/[^0-9]/g, '').substring(0, 2);
+		if (name === "mm" && value > 12) e.target.value = "12"
+		if (name === "cvc") e.target.value = value.substring(0, 4);
+
+		setFormData({ ...formData, [name]: e.target.value });
+	}
+
+	const handleError = (target, message = "Error", type = "add") => {
+		if (type === "add") {
+			const submitBtn = document.querySelector('.btn-submit');
+			submitBtn.classList.add("shake");
+			submitBtn.addEventListener("animationend", () => submitBtn.classList.remove("shake"));
+		}
+
+		document.querySelector(`.label${target}`).nextElementSibling.innerHTML = message;
+		document.querySelector(`.label${target}`).nextElementSibling.classList[type === "add" ? "remove" : "add"]("info--hidden");
+		document.querySelector(`[name="${target}"]`).classList[type](`input--error`);
+	}
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		for (let i in formData) {
+			if (!formData[i]) {
+				handleError(i, "Can`t be blank");
+			} else handleError(i, "", "remove");
+		}
+
+		if (formData.number) {
+			if (formData.number.length < 19) {
+				handleError("number", "Number is too short");
+			} else if (formData.number.match(/[^0-9\s]/g)) {
+				handleError("number", "Wrong format, numbers only");
+			} else handleError("number", "", "remove");
+		}
+
+		if (formData.cvc) {
+			if (formData.cvc.length < 3) {
+				handleError("cvc", "CVC is too short");
+			} else handleError("cvc", "", "remove");
+		}
+
+		if (!formData.mm) handleError("mm", "Can`t be blank");
+		if (!formData.yy) handleError("yy", "Can`t be blank");
+
+		if (document.querySelectorAll('.input--error').length === 0) animateSlider(true);
+	}
+
 	return (
 		<form className='cardForm' onSubmit={handleSubmit}>
 			<label className='labelname'>

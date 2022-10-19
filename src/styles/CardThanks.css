@@ -12,7 +12,7 @@
 }
 
 .cardThanks p:last-of-type {
-	opacity: .8;
+	opacity: 0.8;
 	font-size: 16px;
 	margin-top: 10px;
 	margin-bottom: 30px;

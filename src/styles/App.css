@@ -11,7 +11,7 @@
 
 /* Card Front ========*/
 .cardFront {
-	background-image: url("assets/bg-card-front.png");
+	background-image: url("../assets/bg-card-front.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 	display: flex;
@@ -27,7 +27,7 @@
 	word-spacing: 6px;
 }
 
-.cardFront>span {
+.cardFront > span {
 	font-size: clamp(22px, 2.5vw, 27px);
 	letter-spacing: 4px;
 	margin-bottom: 25px;
@@ -41,10 +41,9 @@
 	text-transform: uppercase;
 }
 
-
 /* Card Back =======*/
 .cardBack {
-	background-image: url("assets/bg-card-back.png");
+	background-image: url("../assets/bg-card-back.png");
 	background-size: contain;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
@@ -59,7 +58,7 @@
 }
 
 .cardFront::after {
-	content: url("assets/card-logo.svg");
+	content: url("../assets/card-logo.svg");
 	position: absolute;
 	top: 27px;
 	left: 27px;
@@ -76,7 +75,7 @@
 	overflow: hidden;
 }
 
-.cardOverflow>div {
+.cardOverflow > div {
 	transition: transform 0.35s ease-in-out;
 }
 
@@ -91,7 +90,7 @@
 }
 
 .btn-primary:hover {
-	opacity: .9;
+	opacity: 0.9;
 }
 
 .card-input {
@@ -101,14 +100,13 @@
 }
 
 .card-input::placeholder {
-	opacity: .7;
+	opacity: 0.7;
 }
 
 @media screen and (max-width: 585px) {
-
 	.cardFront,
 	.cardBack {
-		transform: scale(.8) !important;
+		transform: scale(0.8) !important;
 	}
 
 	.cardFront {
@@ -161,12 +159,10 @@
 }
 
 @media screen and (max-width: 1400px) {
-
 	.cardFront,
 	.cardBack {
-		transform: scale(.85);
+		transform: scale(0.85);
 	}
-
 }
 
 @media screen and (max-width: 1010px) {

@@ -6,17 +6,16 @@
 	--Lighgrayishviolet: hsl(270, 3%, 87%);
 	--Dargrayisviolet: hsl(279, 6%, 55%);
 	--Verdarviolet: hsl(278, 68%, 11%);
-
-	background: var(--White);
 }
 
 body {
-	font-family: 'Space Grotesk', sans-serif;
+	font-family: "Space Grotesk", sans-serif;
+	background: var(--White);
 }
 
 body::after {
 	content: "";
-	background-image: url("assets/bg-main-desktop.png");
+	background-image: url("../assets/bg-main-desktop.png");
 	background-size: cover;
 	width: 33.5%;
 	height: 100vh;
@@ -31,7 +30,7 @@ body::after {
 	width: 100%;
 }
 
-.App {
+#root {
 	display: flex;
 	min-height: 100vh;
 	align-items: center;
@@ -39,7 +38,7 @@ body::after {
 }
 
 @media screen and (max-width: 750px) {
-	.App {
+	#root {
 		flex-direction: column;
 	}
 
