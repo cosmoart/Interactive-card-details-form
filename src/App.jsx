@@ -1,29 +1,29 @@
-import { useState } from 'react';
-import CardThanks from './components/CardThanks';
-import CardForm from './components/CardForm';
-import CreditCard from './components/CreditCard';
-import './styles/App.css';
+import { useState } from 'react'
+import CardThanks from './components/CardThanks'
+import CardForm from './components/CardForm'
+import CardCredit from './components/CardCredit'
+import './styles/App.css'
 
-function App() {
-	const [formData, setFormData] = useState({ name: null, number: null, mm: null, yy: null, cvc: null });
-	const [validate, setValidate] = useState(false);
+function App () {
+	const [formData, setFormData] = useState({ name: null, number: null, mm: null, yy: null, cvc: null })
+	const [validate, setValidate] = useState(false)
 
 	const animateSlider = (validate) => {
-		let axis = window.matchMedia("(max-width: 750px)").matches ? "Y" : "X";
-		document.querySelector('.cardOverflow > div').style.transform = `translate${axis}(50${axis === "Y" ? "vh" : "vw"})`;
+		const axis = window.matchMedia('(max-width: 750px)').matches ? 'Y' : 'X'
+		document.querySelector('.cardOverflow > div').style.transform = `translate${axis}(50${axis === 'Y' ? 'vh' : 'vw'})`
 
-		document.body.classList.add("body-slider");
+		document.body.classList.add('body-slider')
 
 		setTimeout(() => {
-			setValidate(validate);
-			document.body.classList.remove("body-slider");
-			document.querySelector('.cardOverflow > div').style.transform = "translate(0)";
-		}, 500);
+			setValidate(validate)
+			document.body.classList.remove('body-slider')
+			document.querySelector('.cardOverflow > div').style.transform = 'translate(0)'
+		}, 500)
 	}
 
 	return (
 		<>
-			<CreditCard formData={formData} />
+			<CardCredit formData={formData} />
 			<main className='cardOverflow'>
 				<div>
 					{validate
@@ -33,7 +33,7 @@ function App() {
 				</div>
 			</main>
 			<footer className='attribution'>
-				<p>Made with ♥️ by <a href="https://github.com/cosmoart" target="_blank" rel="noopener noreferrer">Cosmo</a> - <a href="https://github.com/cosmoart/Interactive-card-details-form" target="_blank" rel="noopener noreferrer">Repository</a>
+				<p>Made with ♥️ by <a href='https://github.com/cosmoart' target='_blank' rel='noopener noreferrer'>Cosmo</a> - <a href='https://github.com/cosmoart/Interactive-card-details-form' target='_blank' rel='noopener noreferrer'>Repository</a>
 				</p>
 			</footer>
 		</>
