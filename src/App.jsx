@@ -25,10 +25,12 @@ function App () {
 		<>
 			<CardCredit formData={formData} />
 			<main className='cardOverflow'>
-				{validate
-					? <CardThanks setFormData={setFormData} animateSlider={animateSlider} />
-					: <CardForm setFormData={setFormData} animateSlider={animateSlider} formData={formData} />
-				}
+				<div>
+					{validate
+						? <CardThanks setFormData={setFormData} animateSlider={animateSlider} />
+						: <CardForm setFormData={setFormData} animateSlider={animateSlider} formData={formData} />
+					}
+				</div>
 			</main>
 			<footer className='attribution'>
 				<p>Made with ♥️ by <a href='https://github.com/cosmoart' target='_blank' rel='noopener noreferrer'>Cosmo</a> - <a href='https://github.com/cosmoart/Interactive-card-details-form' target='_blank' rel='noopener noreferrer'>Repository</a>

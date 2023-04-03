@@ -25,5 +25,6 @@
 @media screen and (max-width: 750px) {
 	.cardThanks {
 		margin: auto;
+		margin-top: 19rem;
 	}
 }
